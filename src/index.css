@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 20% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 15% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 20% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 220 90% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 220 80% 70%;
+
+    --secondary: 270 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 180 70% 50%;
+    --accent-foreground: 240 20% 8%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 20%;
+    --input: 240 15% 18%;
+    --ring: 220 90% 60%;
+
+    --radius: 0.75rem;
+
+    /* Cosmic gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(220 90% 60% / 0.2), hsl(270 60% 50% / 0.2));
+    --gradient-nebula: linear-gradient(180deg, hsl(240 20% 8%), hsl(260 30% 15%));
+    --gradient-star: radial-gradient(circle, hsl(220 90% 60% / 0.3) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 30px hsl(220 90% 60% / 0.3);
+    --shadow-cosmic: 0 10px 40px -10px hsl(220 90% 60% / 0.4);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(180deg, hsl(240 20% 8%), hsl(260 30% 12%));
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .cosmic-glow {
+    box-shadow: 0 0 30px hsl(220 90% 60% / 0.3);
+  }
+  
+  .star-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
